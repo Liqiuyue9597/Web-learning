@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../layout布局笔记/CSS重置文件/reset.css">
+    <title>网易小框新闻</title>
+    <style>
+        /* 去掉所有a的下划线 */
+        a{
+            text-decoration: none;
+        }
+        /* 给head部分写样式 */
+        .news-head{
+            width: 300px;
+            height: 324px;
+            /* 这行不需要，只是为了方便查看 */
+            margin: 50px auto;
+        }
+        .news-title{
+            height: 40px;
+            border-top: 1px solid #dddddd;
+        }
+        .news-title a{
+            padding-top: 9px;
+            line-height: 40px;
+            border-top: 1px red solid;
+            font-size: 16px;
+            color: black;
+            font-weight: bold;
+        }
+        .news-title a:hover{
+            color: red;
+        }
+        
+        /* 给图片部分写样式 */
+        .news-img { 
+            height: 150px;
+        }
+        .news-img img{
+            width: 100%;
+        }
+        .news-img a{
+            color: white;
+            font-weight: bold;
+        }
+        .news-img h3{
+            margin-top: -25px;
+            padding-left: 50px;
+        }
+
+        /* 给文字内容写样式 */
+        .news-container{
+            margin-top: 25px;
+        }
+        .news-container li{
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .news-container a{
+            color: #747272;
+            
+        }
+        /* 伪类选择器::before用于给元素前面添加content */
+        .news-container a::before{
+            content: "■"; 
+            color: #dddddd;
+            font-size: 8px;
+            /* 移动右边的元素用margin-right，移动自己才用margin-left */
+            margin-right: 10px;
+        }
+        .news-container a:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="news-head">
+        <div class="news-title">
+            <h2><a href="#">科技</a></h2>
+        </div>      
+        <div class="news-img">
+            <a href="#">
+                <img src="./2/1.jpg" alt="快手争3亿日活死磕抖音">
+                <h3>快手争3亿日活死磕抖音</h3>
+            </a>
+        </div>
+        <ul class="news-container">
+            <li><a href="#">中国首块人造培养肉：培养20天长到5克</a></li>
+            <li><a href="#">苹果谷歌亚马逊FB为自己辩护：没垄断</a></li>
+            <li><a href="#">传旷视科技计划本周申请香港上市</a></li>
+            <li><a href="#">果小云事件揭店群玩法：不备货当中间商</a></li>
+        </ul>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>W3C导航栏</title>
+    <link rel="stylesheet" href="../layout布局笔记/CSS重置文件/reset.css">
+    <style>
+    .nav-side{
+        width: 1210px;
+        height: 48px;
+        background-color: #dddddd;
+        margin: 50px auto;
+    }
+
+    .nav-content a{
+        /* 给a加float 自动具有块元素的属性 所以不用再转换为块 */
+        float: left;
+        /* display: block; */
+        line-height: 48px;
+        text-decoration: none;
+        color: #8a8686;
+        font-size: 16px;
+        padding: 0 44px;
+    }
+    .nav-content a:hover{
+        background-color: rgb(58, 54, 54);
+    }
+
+    /* 解决导航最后一块没有填满的问题 */
+    .nav-content li:last-child a{
+        /* 最后一块多给2个像素padding填满 */
+        padding: 0 45px 0 45px;
+    }
+
+    
+    </style>
+</head>
+<body>
+    <div class="nav-side">
+        <ul class="nav-content">
+            <li><a href="#">HTML/CSS</a></li>
+            <li><a href="#">Browser Side</a></li>
+            <li><a href="#">Service Side</a></li>
+            <li><a href="#">Programming</a></li>
+            <li><a href="#">XML</a></li>
+            <li><a href="#">Web Building</a></li>
+            <li><a href="#">Reference</a></li>
+        </ul>
+    </div>
+</body>
+</html>

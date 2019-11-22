@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>京东轮播图</title>
+    <link rel="stylesheet" href="../layout布局笔记/CSS重置文件/reset.css">
+    <style>
+        .slide-wrapper{
+            width: 590px;
+            height: 470px;
+            /* 为了方便看而设置居中 */
+            margin: 50px auto;
+            position: relative;
+        }
+        .slide-wrapper li{
+            position: absolute;
+        }
+        /* 设置元素的层级 */
+        /* .slide-wrapper li:nth-child(1){
+            z-index: 8;
+        } */
+
+        .slide-pointer{
+            position: absolute;
+            z-index: 9999;
+            bottom: 20px;
+            left: 20px;
+        }
+        .slide-pointer a{
+            /* a是行内元素，宽高不起作用，要转换为块元素 */
+            /* display: block; */
+            float: left;/*float代替display: block;的作用*/
+            width: 8px;
+            height: 8px;
+            /* 给所有元素一个border才能保证给.active元素的加上border整个块不会下沉 */
+            /* transparent 将border设置为透明*/
+            border: 2px solid transparent;
+            /* 背景颜色默认情况下会延伸到边框，所以设置了transparent也会显示颜色，通过clip去掉 */
+            background-clip: content-box;
+            background-color: rgba(0, 0, 0, .2);
+            border-radius: 50%;
+            margin-left: 4px;
+        }
+        .slide-pointer .active,
+        .slide-pointer a:hover{
+            background-color: rgb(243, 242, 242);
+            border: 2px solid rgba(0, 0, 0, .2);
+        }
+    
+    </style>
+</head>
+<body>
+    <ul class="slide-wrapper">
+        <li><a href="#"><img src="./4/1.jpg" width="590px"></a></li>
+        <li><a href="#"><img src="./4/2.jpg" width="590px"></a></li>
+        <li><a href="#"><img src="./4/3.jpg" width="590px"></a></li>
+        <li><a href="#"><img src="./4/4.jpg" width="590px"></a></li>
+        <li><a href="#"><img src="./4/5.jpg" width="590px"></a></li>
+        <li><a href="#"><img src="./4/6.jpg" width="590px"></a></li>
+        <li><a href="#"><img src="./4/7.jpg" width="590px"></a></li>
+        <li><a href="#"><img src="./4/8.jpg" width="590px"></a></li>
+        <div class="slide-pointer">
+            <a href="#" class="active"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </ul>
+</body>
+</html>

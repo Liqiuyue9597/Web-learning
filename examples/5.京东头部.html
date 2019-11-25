@@ -4,10 +4,199 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>京东头部</title>
+    <title>京东顶部导航栏</title>
     <link rel="stylesheet" href="../layout布局笔记/CSS重置文件/reset.css">
+    <link rel="stylesheet" href="../font&background/fa/css/all.css">
+    <style>
+        body{
+            /* 设置字体 */
+            font:12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;
+        }
+
+        #shortcut{
+            width: 100%;
+            height: 30px;
+            /* 解决放大之后，背景颜色丢失问题 */
+            min-width: 1200px;
+            background-color: #e3e4e5;
+            border-bottom: 1px solid #dddddd;
+        }
+        #shortcut a{
+            text-decoration: none;
+        }
+        .shortcut-nav{
+            width: 1190px;
+            margin: 0 auto;   
+            line-height: 30px;
+        }
+
+        /* 设置左边部分的样式 */
+        .left-loc{
+            float: left;
+        }
+        .left-loc a{
+            font-size: 12px;
+            color: #999999;
+        }
+        .left-loc i{
+            font-size: 14px;
+            color: red;
+        }
+
+        /* 设置右边部分的样式 */
+        /* 右边的整个部分在右边，如果不设置高度，整个盒子会被ul撑起来 */
+        .right-bar{
+            float: right;
+        }
+        /* 让所有的元素按一行排列 */
+        .right-bar li{
+            float: left;
+            /* 为最后的三组文字设置样式 */
+            font-size: 12px;
+            color: #999999;
+        }
+        /* 设置每个li块的距离 */
+        .right-bar .dt{
+            /* border样式与鼠标移入的样式相同，为了让块不再发生变化 */
+            border: 1px solid transparent;
+            /* border-bottom-style: white; */
+            padding: 0 5px;
+            margin: 0 8px;
+        }
+        .right-bar li a{
+            font-size: 12px;
+            color: #999999;
+        }
+        /* 设置间隔线 */
+        .right-bar .spacer{
+            width: 1px;
+            /* 行高30px，设置间隔线高10px，刚好给margin-top=10px就实现居中 */
+            height: 10px;
+            margin-top: 10px;
+            background-color: #aaaaaa;
+            /* 颜色太硬，增加透明度让它软一些 */
+            opacity: .5;
+        }
+        /* 设置单独的红色（免费注册 企业采购）*/
+        .right-bar .register a:nth-child(2){
+            color: red;
+        }
+        .right-bar li:nth-child(9) a{
+            color: red;
+        }
+        /* 设置鼠标移入样式 */
+        .right-bar a:hover{
+            color: red;
+        }
+        /* 设置icon的样式 */
+        .right-bar li .fa{
+            font-size: 10px;
+            margin-left: 1px;
+        }
+
+        /* 设置下拉栏 */
+        .drop-bar1{
+            position: relative;
+        }
+        .drop-bar1 .my-jd{
+            position: relative;
+            /* my-jd与drop-layer是兄弟元素并且drop-layer是脱离文档流的，所以drop-layer在my-jd上方 */
+            /* 通过设置层级关系使得drop-layer在my-jd下方 */
+            z-index: 999;
+        }
+        .drop-bar1 .drop-layer{
+            display: none;
+            width: 300px;
+            height: 180px;
+            position: absolute;
+            border: 1px solid #dddddd;
+            box-shadow: 0px 2px 3px #d8d6d6;
+            /* 移动margin产生的8px距离 */
+            left: 8px;
+            top: 31px;
+        }
+        /* 设置下拉菜单的隐藏与出现 */
+        .drop-bar1:hover .my-jd{
+            background-color: #fff;
+            border: 1px solid #dddddd;
+            border-bottom: none;
+            /* 用my-jd的块来盖住下面drop-layer的横线 */
+            padding-bottom: 1px;
+        }  
+        .drop-bar1:hover .drop-layer{
+            display: block;
+        }
+        
+    </style>
 </head>
 <body>
-    
+    <div id="shortcut">
+        <!-- 布局分两部分 -->
+        <div class="shortcut-nav">
+            <!-- 第一部分：左边的定位部分 -->
+            <ul class="left-loc">
+                <li>
+                    <i class="fa fa-map-marker-alt"></i>
+                    <a href="javascript:;">四川</a>
+                </li>
+            </ul>
+            <!-- 第二部分：右边的导航部分 -->
+            <ul class="right-bar">
+                <li class="dt register">
+                    <a href="javascript:;">你好，请登录&nbsp;</a>
+                    <a href="javascript:;">免费注册</a>
+                </li>
+                <!-- 导航里间隔的|用li来写 -->
+                <li class="spacer"></li>
+                <li>
+                    <div class="dt">
+                        <a href="javascript:;">我的订单</a>
+                    </div>
+                </li>
+                <li class="spacer"></li>
+                <li class="drop-bar1">
+                    <div class="dt my-jd">
+                        <a href="javascript:;">我的京东</a>
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                    <div class="drop-layer"></div>
+                </li>
+                <li class="spacer"></li>
+                <li>
+                    <div class="dt">
+                        <a href="javascript:;">京东会员</a>
+                    </div>
+                </li>
+                <li class="spacer"></li>
+                <li>
+                    <div class="dt">
+                        <a href="javascript:;">企业采购</a>
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                    <div></div>
+                </li>
+                <li class="spacer"></li>
+                <li>
+                    <div class="dt">
+                        客户服务
+                        <i class="fa fa-angle-down"></i>
+                    </div> 
+                </li>
+                <li class="spacer"></li>
+                <li>
+                    <div class="dt">
+                        网站导航
+                        <i class="fa fa-angle-down"></i>
+                    </div> 
+                </li>
+                <li class="spacer"></li>
+                <li>
+                    <div class="dt">
+                        手机京东  
+                    </div> 
+                </li>
+            </ul> 
+        </div>
+    </div>
 </body>
 </html>

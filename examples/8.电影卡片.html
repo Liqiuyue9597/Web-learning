@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../layout布局笔记/CSS重置文件/reset.css">
+    <link rel="stylesheet" href="../font&background/fa/css/all.css">
+    <style>
+        .outer{
+            width: 240px;
+            /* 不能指定高度，因为卡片的高度不固定，文字有多有少，图片有大有小 */
+            /* height: 34px; */
+            margin: 50px auto;
+            /* 设置阴影 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+            
+        }
+        .bg-img img{
+            width: 100%;
+            /* 设置图片基线去掉一个像素的空白 */
+            vertical-align: bottom;
+        }
+        .content-box h3{
+            margin-top: 12px;
+            font-size: 18px;
+            color: #717171;
+            padding: 0 18px;
+            
+        }
+        .content-box h4{
+            font-size: 14px;
+            color: #acaaaa;
+            /* 设置字体不要加粗 */
+            font-weight: normal;
+            /* margin: 0 20px;
+            margin-top: 15px;  合并为一个*/
+            margin: 15px 20px 0 20px;
+        }
+        .content-box h4::before{
+            content: '\f3c5';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900; 
+            font-size: 14px;
+        }
+        .content-box p{
+            margin-top: 23px;
+            padding: 0 20px;
+            color: #b2b0b0;
+            font-size: 14px;
+            margin-bottom: 20px;
+            
+        }
+
+        .footer{
+            height: 46px;
+            /* 居中显示 */
+            line-height: 46px;
+            border-top: 1px solid rgba(233, 233, 233,.7);
+        }
+        .footer ul{
+            color: #dddddd;
+            font-size: 16px;
+            margin: 0 20px;
+        }
+        .footer .star{
+            float: left;
+        }
+        .footer .star .light{
+            color: #b9cb41;
+        }
+
+        .footer .weibo{
+            float: right;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="bg-img">
+            <img src="./8/images/1.jpg">
+        </div>
+        <div class="content-box">
+            <h3>Animation Films</h3>
+            <!-- <i class="fa fa-map-marker-alt"></i> -->
+            <h4>&nbsp;&nbsp;Animations</h4>
+            <!-- <h4>
+                <i class="fa fa..."></i>Animations
+            </h4> -->
+            <p>
+                Lorem ipsum dolor sit am consectetur adipisicing elit.
+            </p>
+        </div>
+        <div class="footer">
+            <ul class="star">
+                <i class="fa fa-star light"></i>
+                <i class="fa fa-star light"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+            </ul>
+            <ul class="weibo">
+                 <i class="fab fa-weibo"></i>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

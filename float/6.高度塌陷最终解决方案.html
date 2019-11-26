@@ -24,8 +24,10 @@
         }
 
         /* CSS解决塌陷问题 不用HTML添加div解决 */
+        /* after before伪元素选择器默认是行内元素 */
         .box1::after{
             content: '';
+            /* display: table; table和block都可以 */
             display: block;
             clear: both;
         }

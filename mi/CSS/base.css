@@ -1,0 +1,27 @@
+/* 公共样式 */
+
+/* 去除外边距重叠和解决高度塌陷问题 */
+.clearfix::before,
+.clearfix::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* 通用版心（中间容器）宽度 */
+.w{
+    width: 1226px;
+    margin: 0 auto;
+}
+
+/* 设置通用格式 */
+body{
+    font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+    color: #333333;
+    min-width: 1226px;
+}
+
+/* 去除a标签的下划线 */
+a{
+    text-decoration: none;
+}

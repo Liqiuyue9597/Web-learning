@@ -1,0 +1,563 @@
+/* 主页样式 */
+
+/* 顶部导航条部分 */
+.topbar-wrapper{
+    width: 100%;
+    height: 40px;
+    background-color: #333333;
+    line-height: 40px;
+}
+/* .topbar{
+    width: 1226px;
+    margin: 0 auto; 
+    base.css已经写了，直接引入.w
+} */
+
+/* 导航条所有文字样式一致 */
+.topbar a{
+    display: block;
+    color: #b0b0b0;
+    font-size: 12px;
+}
+.topbar li a:hover{
+    color: #ffffff;
+}
+/* 设置间隔线的样式，所有导航条一致 */
+.topbar .line{
+    color: #424242;
+    font-size: 12px;
+    margin: 0 8px;
+}
+
+/* 设置第一部分样式 */
+/* 将整个topbar里的li都向左浮动，并且将第一部分ul块向左浮动 */
+.topbar li,.service{
+    float: left;
+}
+/* 设置第一部分APP弹出框 */
+.app-download{
+    position: relative;
+}
+ .app-download .qrcode{
+     /* 设置隐藏:通过display或者height+overflow */
+    /* display: none; */
+    /* height: 148px; */
+    height: 0;
+    overflow: hidden;
+    width: 124px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, .2);
+    background-color: #fff;
+    /* text-align只用来定义行内内容（例如文字）如何**相对**它的块父元素对齐 */
+    text-align: center;
+    /* span里的文字继承了父元素的line-height=40的行高，对于这部分行高太高不适合所以去掉行高 */
+    line-height: 1px;
+    position: absolute;
+    z-index: 9999;
+    /* 居中技巧（不知道父元素长度时）：先left父元素一半，然后向左自己宽度的一半 */
+    left: 50%;
+    margin-left: -62px;
+    /* 过渡效果：产生二维码弹窗延迟的动画 */
+    transition: height .4s;
+}
+/* 设置二维码居中 */
+.qrcode img{
+    margin: 17px 17px;
+    /* margin-bottom: 0px; */
+} 
+/* 设置字体样式 */
+.qrcode span{
+    color: #333333;
+    font-size: 14px;
+}
+/* 设置弹出框的小三角 */
+.app-download::after{
+    /* 设置伪元素千万不要忘了写content */
+    content: '';
+    /* display: block; 给position相当于给元素设置了block*/
+    /* 设置隐藏 */
+    display: none;
+    border: 8px #fff solid;
+    border-color: transparent transparent #fff transparent;
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -8px;
+}
+/* 鼠标移入弹出框出现 */
+.app-download:hover .qrcode,
+.app-download:hover::after{
+    display: block;
+    height: 148px;
+}
+
+/* 设置第二部分 */
+/* 将ul整个块向右浮动，但是块中的li必须向左浮动，不然顺序是反的 */
+.topbar .user-info{
+    float: right;
+}
+
+
+/* 设置第三部分样式 */
+.topbar .shopping-cart{
+    float: right;
+    margin-left: 25px;
+}
+
+.topbar .shopping-cart a{
+    width: 120px;
+    background-color: #424242;
+    /* height: 38px; */
+    text-align: center;
+}
+
+.shopping-cart:hover li a{
+    background-color: #fff; 
+    color: #ff6700;
+    
+
+}
+/* 购物车的弹窗 */
+.shopping-cart li{
+    position: relative; 
+}
+.cart-box{
+    display: none;
+    width: 316px;
+    height: 100px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    /* 购物车弹窗应该盖住后写的搜索框，给优先级 */
+    z-index: 999;
+}
+
+.shopping-cart li:hover .cart-box{
+    display: block;
+}
+
+/* header navigator部分 */
+.header{
+    height: 100px;
+    /* background-color: #bfc; */
+    
+}
+.header .logo{
+    width: 55px;
+    height: 55px;
+    margin: 22px 0;
+    position: relative;
+    float: left;
+    /* 将logo外的图片隐藏 */
+    overflow: hidden;
+}
+/* 给logo添加动画 整个a的框不变，两张不同的图片做背景在a框中切换*/
+.header .logo a{
+    /* 不将a转换为块元素无法显示 */
+    /* display: block; 给position相当于给了block属性*/
+    width: 55px;
+    height: 55px;
+    background-image: url(../img/mi-logo.png);
+    background-position: center;
+    background-color: #ff6700;
+    /* 设置动画变化时left的初始位置，如果不设置则left为auto，不能实现动画效果 */
+    left: 0;
+    /* 通过定位完成转换的动画 */
+    position: absolute;
+    transition: left .2s;
+}
+.header .logo .home{
+    background-image: url(../img/mi-home.png);
+    /* home图片隐藏在mi左边 */
+    left: -55px;
+}
+.header .logo:hover .mi{
+    left: 55px;
+}
+.logo:hover .home{
+    left: 0;
+}
+/* 设置中间内容盒子样式 */
+.header .container-nav,.container-nav > li{
+    float: left;
+}
+.container-nav{
+    /* 整个中间栏与logo的距离 */
+    margin-left: 50px;
+}
+.container-nav li{
+    line-height: 100px;
+    /* 文字之间不能给margin，给margin鼠标移到margin部分a就不起作用，弹窗会收回去，影响用户体验 */
+    /* margin: 0 10px; */
+}
+.container-nav a{
+    display: block;
+    font-size: 16px;
+    /* 给padding不能给margin */
+    padding: 0 10px;
+    color: #333333;
+}
+/* 在主页隐藏的栏 */
+.container-nav .all-goods {
+    position: relative;
+}
+.all-goods > a{
+    padding: 0 15px 0 35px;
+    /* 隐藏全部商品分类并且不丢失位置，display：none会丢失位置 */
+    visibility: hidden;
+}
+.container-nav a:hover {
+    color: #ff6700;
+}
+/* 导航弹出框样式 */
+.header-wrapper{
+    /* 弹出框占满整个网页宽度，所以不应该把相对定位给.header */
+    position: relative;
+}
+.nav-category{
+    /* 开启position为absolute，元素脱离文档流，不给宽就显示不出来 */
+    width: 100%;
+    /* 隐藏弹框 */
+    /* height: 228px; */
+    height: 0px;
+    background: #ffffff;
+    position: absolute;
+    /* 定位 */
+    left: 0;
+    top: 100px;
+    /* border-top: 1px solid #e0e0e0;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .2); */
+    transition: height .4s;
+    /* 导航弹窗盖住所有，给比较高的级别 */
+    z-index: 9999;
+}
+
+/* 考虑.nav-category与绑定事件li之间的关系，兄弟关系就用~或者+，~表示之后的所有 */
+.nav-box .show-goods:hover ~ .nav-category,
+.nav-category:hover{
+    height: 228px;
+    border-top: 1px solid #e0e0e0;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+}
+/* 小米左边导航栏是放在全部商品分类下的 */
+.all-goods .slide-nav{
+    width: 234px;
+    height: 460px;
+    background-color: rgba(0, 0, 0, .3);
+    position: absolute;
+    /* 给左边导航栏定位 整个中间栏的左margin值+logo的宽度*/
+    left: -105px;
+    top: 100px;
+    /* 左导航栏覆盖轮播图片 */
+    z-index: 999;
+}
+.slide-nav .left-list{
+    /* 设置浮动后脱离文档流，不设置width，left-list只是被内容撑开 */
+    width: 100%;
+    float: left;
+    margin: 20px 0;
+}
+.slide-nav .left-list li{
+    /* 将继承的line-height=100px 和margin=10px去掉 */
+    line-height: 1;
+    margin: 0;
+    height: 42px;
+}
+.slide-nav .left-list a{
+    /* 将文字居中 */
+    line-height: 42px;
+    /* 将继承的橙色字体颜色去掉 */
+    color: white;
+    font-size: 14px;
+    display: block;
+    padding: 0 30px;
+}
+.slide-nav .left-list li:hover{
+    background-color: #ff4600;
+}
+
+/* 设置图标样式 */
+.slide-nav .left-list li i{
+    float: right;
+    /* float之后a中的line-height对i失效了 */
+    line-height: 42px;
+    font-size: 16px;
+}
+/* 设置左边导航的弹出框 */
+.slide-nav .left-category{
+    /* 隐藏 */
+    display: none;
+    /* 
+    减去1像素右border（实际的弹出框是被内容撑开的，width不要写死）
+    现在没内容，为了显示出来先写死
+     */
+    width: 991px;
+    position: absolute;
+    top: 0;
+    left: 234px;
+    /* 460的高度减去上下的boder */
+    height: 458px;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, .1);
+    z-index: 999;
+}
+/* 鼠标移入弹框弹出 */
+.slide-nav .left-list li:hover ~ .left-category{
+    display: block;
+}
+
+/* 设置搜索框 */
+.search-wrapper{
+    width: 296px;
+    /* background-color: #000000; */
+    margin-top: 25px;
+    float: right;
+}
+.search-wrapper .search-form{
+    height: 50px;
+    width: 296px;
+    position: relative;
+}
+.search-wrapper .search-content{
+    /* 
+        input里的box-sizing是border-box并且不能修改
+        box-sizing: content-box; 这样设置无效
+    */
+    /* 去掉自带的样式：border和padding */
+    padding: 0 10px;
+    height: 50px;
+    width: 222px;
+    float: left;
+    /* 自带的蓝色outline去掉 */
+    outline: none;
+    border: 1px solid #e0e0e0;
+}
+.search-wrapper .search-btn{
+    /* 将btn自带的性质改变 */
+    box-sizing: content-box;
+    /* 自带的padding和蓝色outline去掉 */
+    padding: 0;
+    outline: none;
+    height: 50px;
+    width: 52px;
+    float: left;
+    border: 1px solid #e0e0e0;
+    /* 绝对定位让边框重叠 */
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    /* 设置动画过渡 */
+    /* transition: all .3s; */
+}
+.search-wrapper .search-btn i{
+    font-size: 18px;
+    color: #616161;
+}
+/* 设置光标移入边框的变化 */
+.search-content:focus +.search-btn,
+.search-content:focus{
+    border-color: #ff6700;
+}
+/* 设置btn变化  */
+.search-btn:hover,
+.search-btn:hover i{
+    background-color: #ff6700;
+    color: #fff;
+}
+/* 设置弹出框 */
+.search-box{
+    /* 隐藏弹框 */
+    display: none;
+    width: 241px;
+    border: 1px solid #ff6700;
+    
+    background-color: #fff;
+    /* 弹出框在最上层，盖住图片。所以给这部分开启定位 */
+    position: absolute;
+    /* 50的高度+1个像素上border */
+    top: 51px;
+    left: 0px;
+    z-index: 999;
+}
+.search-list li{
+    margin: 6px 15px;
+}
+.search-list li a{
+    /* display: none; */
+    font-size: 12px;
+    color: #333333;
+}
+/* 当搜索框获得光标焦点就弹出 */
+.search-content:focus ~ .search-box{
+    display: block;
+}
+
+
+/* 中间轮播图部分 */
+
+.slide-wrapper .banner{
+    /* 
+    不给包含块相对定位，包含块里的子元素li浮动之后继承不到.slide-wrapper里的宽度，
+    进而li下的img也继承不到li的宽度
+    */
+    position: relative;
+    height: 460px;
+}
+.slide-wrapper .banner .img-list li{
+    position: absolute;
+
+}
+.slide-wrapper .banner img{
+    /* 原始图片比较大 */
+    width: 100%;
+    /* 让图片按照顶部对齐 */
+    vertical-align: top;
+}
+/* 轮播图小点制作 */
+.pointer{
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+}
+.pointer a{
+    /* a是行内元素不能直接指定宽高，浮动之后改变特性就可以给宽高 */
+    float: left;
+    width: 6px;
+    height: 6px;
+    border: 2px solid rgba(255, 255, 255, .4);
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    margin: 0 4px;
+}
+/* 默认从第一个开始，所以选中第一个点 */
+.pointer a:hover,
+.pointer .active{
+    border-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, .4);
+}
+/* 切换箭头部分 */
+.toggle-wrapper a{
+    display: block;
+    width: 41px;
+    height: 69px;
+    position: absolute;
+    background-image: url(../img/icon-slides.png);
+    /* 利用公式设置居中 */
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+.toggle-wrapper .pre{
+    left: 234px;
+    /* background-position移动的是图片位置不是盒子 */
+    background-position: -83px 0;
+}
+.toggle-wrapper .pre:hover{
+    background-position: 0 0;
+}
+.toggle-wrapper .next{
+    right: 0;
+    background-position: 41px;
+}
+.toggle-wrapper .next:hover{
+    background-position: -41px 0;
+}
+
+
+/* 第三部分 广告位*/
+.home-wrapper .home-row{ 
+    /* 总高170px出去2个padding-top */
+    height: 168px;
+    margin-top: 14px;
+}
+.home-span1,
+.home-span2,
+.home-row li{
+    float: left;
+}
+.home-span1{
+    /* 给6pxpadding后234px变为228 */
+    width: 228px;
+    background-color: #5f5750;
+    margin-right: 14px;
+    /* 两个84+84=168px 总高170px所以给2px */
+    padding-top: 2px;
+    padding-left: 6px;
+
+}
+.home-span1 .home-list a{
+    display: block;
+    width: 76px;
+    height: 84px;
+    color: #CFCCCA;
+    text-align: center;
+    font-size: 12px;
+    /* 开启BFC，不然外边距重叠，a会被i撑大 */
+    overflow: hidden;
+}
+.home-span1 .home-list i{
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+    /* 让i在a的小盒子中居中 */
+    margin-top: 20px;
+}
+.home-span1 .home-list a:hover{
+    color: #fff;
+}
+.home-span2 li img{
+    width: 316px; 
+}
+.home-span2 li{
+    margin-right: 15px;
+}
+.home-span2 li:last-child {
+    margin: 0;
+}
+/* 添加边框 */
+.home-span1 .home-list li{
+    position: relative;
+}
+.home-span1 .home-list li::before{
+    margin-top: 2px;
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 64px;
+    background-color: #616161;
+    /* 让边框左右居中 */
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.home-span1 .home-list li::after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 70px;
+    background-color: #616161;
+    /* 设置边框上下居中 */
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+
+
+/* 侧边栏 */
+.side-tool{
+    width: 26px;
+    height: 206px;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    /* 固定定位让盒子只跟随浏览器窗口来变化 */
+    position: fixed;
+    top: 50%;
+    margin-top: -104px;
+    /* margin-right的值为中间容器的一半+侧边栏的一半+边框 */
+    margin-right: -641px;
+    right: 50%;
+}

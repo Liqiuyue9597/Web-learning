@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .clock {
+            width: 400px;
+            height: 400px;
+            background-color: #bfc;
+            border-radius: 50%;
+            position: relative;
+            background-image: url(./10/bg3.jpg);
+            background-size: contain;
+
+        }
+        .hours,
+        .minutes,
+        .seconds{
+            position: absolute;
+            /* 居中 */
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .hours {
+            width: 200px;
+            height: 200px;
+            /* background-color: #000000; */
+        }
+        .minutes{
+            width: 260px;
+            height: 260px;
+        }
+        .seconds{
+            width: 300px;
+            height: 300px;
+        }
+
+        .hours-pointer,
+        .seconds-pointer,
+        .minutes-pointer{
+            background-color: #000000;
+            /* 指针居中 */
+            margin: 0 auto;
+        }
+
+        .hours .hours-pointer {
+            width: 4px;
+            height: 100px;
+        }
+        .minutes .minutes-pointer{
+            width: 3px;
+            height: 130px;
+        }
+        .seconds-pointer{
+            width: 2px;
+            height: 150px;
+        }
+
+        .clock:hover .hours {
+            animation: clock 43200s infinite;
+        }
+        .clock:hover .minutes {
+            animation: clock 3600s infinite steps(120);
+        }
+        .clock:hover .seconds {
+            animation: clock 60s infinite steps(60);
+        }
+
+        @keyframes clock {
+            from {
+                transform: rotateZ(0);
+            }
+
+            to {
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <div class="hours">
+            <div class="hours-pointer"></div>
+        </div>
+        <div class="minutes">
+            <div class="minutes-pointer"></div>
+        </div>
+        <div class="seconds">
+            <div class="seconds-pointer"></div>
+        </div>
+    </div>
+</body>
+
+</html>

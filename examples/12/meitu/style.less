@@ -1,0 +1,166 @@
+a{
+    text-decoration: none;
+    color: #fff;
+}
+.top-bar-wrapper{
+    width: 100%;
+    background-color: #000000;
+    height: 44px;
+}
+.top-bar{
+    display: flex;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    flex: auto;
+    // 设置纵向元素居中
+    align-items: center;
+    // position: relative;开启相对定位无法用bottom实现height为auto
+    // 第一部分
+    .left-menu{
+        height: 100%;
+        .menu-icon{
+            // a不给宽高无法产生点击效果
+            display: block;
+            width: 48px;
+            height: 100%;
+            // 设置left-menu的三条线图标
+            span{
+                width: 18px;
+                height: 1px;
+                position: absolute;
+                background-color: #fff;
+                left: 16px;
+                transition: transform 0.4s ease-in-out;
+            }
+            span:nth-child(1){
+                top: 17px;
+            }
+            span:nth-child(2){
+                top: 24px;
+            }
+            span:nth-child(3){
+                top: 31px;
+            }
+        }
+        // 设置动画效果
+        &:hover .menu-icon span:nth-child(2){
+            opacity: 0;
+        }
+        &:hover .menu-icon span:nth-child(1){
+            transform: rotateZ(45deg) translate(5px,5px);
+        }
+        &:hover .menu-icon span:nth-child(3){
+            transform: rotateZ(-45deg) translate(5px,-5px);
+        }
+        // 设置弹窗弹出
+        // &:hover .pop-layer{
+        //     display: block;
+        // }
+
+        // 弹出框
+        .pop-layer{
+            // 隐藏弹出框
+            display: none;
+
+            position: absolute;
+            background-color: #000000;
+            top: 48px;
+            // 实现背景颜色充满整个窗口
+            left: 0;
+            right: 0;
+            bottom: 0;
+            li{
+                width: 80%;
+                margin: 0 auto;
+                border-bottom: 1px solid rgb(36, 35, 35); 
+                a{
+                    display: block;
+                    font-size: 14px;
+                    line-height: 44px;
+                }
+                
+            }
+            .search{
+                display: flex;
+                align-items: center;
+                a{
+                    width: 26px;
+                    height: 44px;
+                    background-image: url(../dff63979.sprites-index@2x.png);
+                    background-size: 400px 400px;
+                    // 给8px让元素居中
+                    background-position: -209px 8px;
+                }
+                span{
+                    color: #fff;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    // 第二部分
+    .logo{
+        a{
+            display: block;
+            width: 122px;
+            height: 32px;
+            background-image: url(../dff63979.sprites-index@2x.png);
+            background-size: 400px 400px;
+            // 将文字移动到无穷远处，不删除是为了搜索引擎能够根据这个关键字爬到这个网站
+            text-indent: -9999px;
+            overflow: hidden;
+        }
+    }
+
+    // 第三部分
+    .user-info{
+        // padding-right: 16px;
+        a{
+            display: block;
+            width: 20px;
+            height: 44px;
+            background-image: url(../dff63979.sprites-index@2x.png);
+            background-position: -165px 8px;
+            background-size: 400px 400px;
+        }
+    }
+
+    /* 设置响应式布局 */
+    @media only screen and (min-width:768px) {
+        .left-menu{
+            flex: auto;
+            order: 2;
+            .menu-icon{
+                display: none;
+            }
+            
+            .pop-layer{
+                display: flex;
+                // 首先将定位关闭
+                position: static;
+                li{
+                    display: flex;
+                    justify-content: space-around;
+                    border: none;
+                    a{
+                        display: inline-block;
+                    }
+                    span{
+                        display: none;
+                    }
+                }  
+            }
+        }
+        .logo{
+            order: 1;
+            padding-left: 16px;
+        }
+        .user-info{
+            order: 3;
+        }
+    }
+    
+}

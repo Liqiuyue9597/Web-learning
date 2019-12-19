@@ -4,3 +4,6 @@
 
 HTML CSS JS都是学习的尚硅谷李立超，反正讲挺好的。
 https://www.bilibili.com/video/av73233449?spm_id_from=333.337.b_62696c692d6865616465722d6d.28
+
+HTML&CSS是尚硅谷李立超2019最新版笔记。
+ECMAScript是尚硅谷2017/12月的视频笔记。

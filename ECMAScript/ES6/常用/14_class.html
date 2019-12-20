@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>12_class</title>
+</head>
+<body>
+</body>
+<!--
+1. 通过class定义类/实现类的继承
+2. 在类中通过constructor定义构造方法
+3. 通过new来创建类的实例
+4. 通过extends来实现类的继承
+5. 通过super调用父类的构造方法
+6. 重写从父类中继承的一般方法
+-->
+<script>
+  /* 通过构造函数实现类的继承
+  function Person(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  let person = new Person('kobe', 39);
+  console.log(person);
+  */
+  // 1.通过class定义类
+  // 定义一个人物的类
+  class Person {
+    // 类的构造方法(保存在类的原型__proto__中)
+    constructor(name, age){
+      this.name = name;
+      this.age = age;
+    }
+    // 类的一般方法(保存在类的原型__proto__中)
+    showName(){
+      console.log(this.name);
+    }
+  }
+  let person = new Person('kobe', 30);
+  console.log(person);
+  person.showName();
+
+  // 通过extends来实现类的继承
+  // 子类
+  class StarPerson extends Person{
+    constructor(name, age, salary){
+      super(name, age); //表示调用父类的构造方法（constructor中的方法），不需要再写一次
+      this.salary = salary;
+    }
+    showName(){
+      console.log(this.salary);
+    }
+  }
+  let starPerson = new StarPerson('kb',20, 300);
+  //当starPerson内部没有showName方法，向上寻找原型(StarPerson)的原型（Person）中的showName方法调用输出 kb
+  // 当子类当中含有showName方法时，优先调用自己内部的方法--父类的方法重写
+  starPerson.showName(); 
+
+  
+  
+</script>
+</html>

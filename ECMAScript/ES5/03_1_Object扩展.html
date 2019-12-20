@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>03_Object扩展</title>
+</head>
+<body>
+<!--
+ES5给Object扩展了一些静态方法, 常用的2个:
+1. Object.create(prototype, [descriptors])
+  * 作用: 以指定对象为原型创建新的对象
+  * 为新的对象指定新的属性, 并对属性进行描述
+    - value : 指定值
+    - writable : 标识当前属性值是否是可修改的, 默认为false
+    - configurable: 标识当前属性是否可以被删除 默认为false
+    - enumerable： 标识当前属性是否能用for in 枚举 默认为false
+2. Object.defineProperties(object, descriptors)
+  * 作用: 为指定对象定义扩展多个属性
+    * get ：获取当前对象属性值的回调函数（惰性取值，需要输出（或其他需要get方法的操作）才自动调用，不输出不调用）
+    * set ：修改当前属性值时触发的回调函数，并且函数的实参即为修改后的值
+   * 存取器属性：setter,getter一个用来存值，一个用来取值
+-->
+<script type="text/javascript">
+  var obj = {
+    username: 'kobe',
+    age: 18
+  };
+  var obj1 = {};
+  // 1.以指定对象为原型创建新的对象
+  obj1 = Object.create(obj, {// 为obj1对象指定新的属性, 并对属性进行描述
+    sex:{
+      value: 'man',
+      writable: true,
+      configurable: true,
+      enumerable: true
+    } 
+  }); 
+  // 可以在obj1的隐式属性中找到原型对象obj
+  console.log(obj1.__proto__); //{username: "kobe", age: 18}
+  // writable:可修改
+  obj1.sex = 'female'; 
+  console.log(obj1.sex); //female
+  // configurable：可删除
+  delete obj1.sex;
+  console.log(obj1); //{}
+  obj1.sex = 'man';
+  // enumerable：可枚举
+  for(var property in obj1){
+    console.log(property);//sex username age（输出包括原型对象的属性）
+  }
+  
+  
+  // 2.为指定对象定义扩展多个属性
+  var obj2 = {
+    firstName: 'kobe',
+    lastName: 'bryant'
+  }
+  // 为当前obj2对象扩展fullName属性
+  Object.defineProperties(obj2, {
+    fullName:{
+      // get:用于获取当前对象的当前属性值
+      get:function(){ // 需要获取扩展属性值时get()方法才自动调用，自动调用后会将变化的值作为实参传入
+        return this.firstName + ' ' + this.lastName;
+      },
+      set:function(data){ //监听扩展属性的值，当扩展属性发生变化的时候自动调用
+        console.log(data);//Donald Trump
+        var names = data.split(' ');//将属性修改值通过split分为两个数组
+        console.log(names);//["Donald", "Trump"]
+        this.firstName = names[0];
+        this.lastName = names[1];
+      }
+    }
+  })
+  console.log(obj2);//obj2对象会多出fullName: "kobe bryant"的属性。
+  obj2.fullName = 'Donald Trump'; //不能直接赋值修改扩展的属性，只能通过set回调函数修改
+  console.log(obj2.fullName);//不通过set函数输出原属性值kobe bryant，通过set之后输出修改的值
+
+</script>
+</body>
+</html>

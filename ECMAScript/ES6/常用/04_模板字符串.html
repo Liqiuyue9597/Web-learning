@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>04_模板字符串</title>
+</head>
+<body>
+<!--
+1. 模板字符串 : 简化字符串的拼接
+  * 模板字符串必须用 `` 包含
+  * 变化的部分使用${xxx}定义
+-->
+<script type="text/javascript">
+  let obj = {
+    username: 'kobe',
+    age: 39
+  };
+  // 初始拼串：如果变量太多会非常麻烦
+  let str = 'My name is: ' + obj.username + '. My age is: ' + obj.age +'.';
+  console.log(str);
+  // 模板字符串
+  str = `My name is: ${obj.username}. My age is: ${obj.age}.`;
+  console.log(str);
+  
+</script>
+</body>
+</html>

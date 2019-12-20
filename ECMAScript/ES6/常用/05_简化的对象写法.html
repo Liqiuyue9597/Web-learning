@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>05_简化的对象写法</title>
+</head>
+<body>
+<!--
+简化的对象写法
+* 省略同名的属性值
+* 省略方法的function
+* 例如:
+  let x = 1;
+  let y = 2;
+  let point = {
+    x,
+    y,
+    setX (x) {this.x = x}
+  };
+-->
+<script type="text/javascript">
+  let username = 'kobe';
+  let age = 39;
+  // 不省略的写法
+  let obj = {
+    username: username, // 使用全局变量作为属性值
+    age: age,
+    getName: function () {
+      return this.username;
+    }
+  };
+  console.log(obj);
+  
+  // 省略写法
+  let obj = {
+    username, //同名的属性可以省略不写
+    age,
+    getName() {  //省略函数的冒号和function部分
+      return this.username;
+    }
+  };
+</script>
+</body>
+</html>

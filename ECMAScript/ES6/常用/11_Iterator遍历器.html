@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Iterator遍历器</title>
+</head>
+<body>
+  <!--
+    概念： iterator是一种接口机制，为各种不同的数据结构提供统一的访问机制
+    作用：
+      1、为各种数据结构，提供一个统一的、简便的访问接口；
+      2、使得数据结构的成员能够按某种次序排列
+      3、ES6创造了一种新的遍历命令for...of循环，Iterator接口主要供for...of消费。
+    工作原理：
+      - 创建一个指针对象(遍历器对象)，指向数据结构的起始位置。
+      - 第一次调用next方法，指针自动指向数据结构的第一个成员
+      - 接下来不断调用next方法，指针会一直往后移动，直到指向最后一个成员
+      - 每调用next方法返回的是一个包含value和done的对象，{value: 当前成员的值,done: 布尔值}
+        * value表示当前成员的值，done对应的布尔值表示当前的数据的结构是否遍历结束。
+        * 当遍历结束的时候返回的value值是undefined，done值为false
+    原生具备iterator接口的数据(可用for of遍历)
+      1、Array
+      2、arguments
+      3、set容器
+      4、map容器
+      5、String
+      。。。
+  -->
+
+<script>
+  // 模拟指针对象（遍历器对象）
+  function myIterator(arr) {  //iterator接口
+    let nextIndex = 0; // 记录指针的位置
+    return { // 遍历对象
+      next: function () {
+        return nextIndex < arr.length
+          ?{value: arr[nextIndex++], done:false}:{value: arr[nextIndex++], done:true}
+      }
+    }
+  }
+  // 准备一个数据
+arr = [1,2,44,'ad'];
+let iteratorObj = myIterator(arr);
+// iteratorObj.next(); return 出next的对象值
+// 将next对象值打印，next执行一次指针移动一次
+console.log(iteratorObj.next()); //{value: 1, done: false}
+console.log(iteratorObj.next()); //{value: 2, done: false}
+console.log(iteratorObj.next()); //{value: 44, done: false}
+console.log(iteratorObj.next()); //{value: "ad", done: false}
+console.log(iteratorObj.next()); //{value: undefined, done: true}
+
+
+// 将iterator接口部署到指定的数据类型上，可以使用for of实现循环遍历(相当于for of这个方法是从next中拿了value值输出，如果不具备iterator那么for of就不能用)
+// 原生具备iterator接口：Array/String/arguments/set容器/map容器
+// Array
+for (const i of arr) {
+  console.log(i);// 1 2 44 ad
+}
+// String
+let str = 'abcd';
+for (const iterator of str) {
+  console.log(iterator);// a b c d(abcd分别打印)
+}
+// arguments
+function fun() {
+  for (const iterator of arguments) {
+    console.log(iterator);//3 sd
+  }
+}
+fun(3,'sd');
+
+// 自己定义的普通对象
+obj = {
+  username: 'kobe',
+  age: 39
+};
+for (const i of obj) {
+  console.log(obj);// 输出错误：obj is not iterable
+}
+</script>
+</body>
+</html>

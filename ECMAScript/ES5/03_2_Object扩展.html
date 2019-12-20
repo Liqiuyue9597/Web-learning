@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    对象本身的两个方法
+    * get propertyName(){} 用来得到当前属性值的回调函数
+    * set propertyName(){} 用来监视当前属性值变化的回调函数
+-->
+<script>
+    var obj = {
+        firstName: 'Curry',
+        lastName: 'stephan',
+        get fullName(){
+            return this.firstName + ' ' + this.lastName;
+        },
+        set fullName(data){
+            var names = data.split(' ');//将属性修改值通过split分为两个数组
+            this.firstName = names[0];
+            this.lastName = names[1];
+        }
+    };
+    console.log(obj);//也多出了 fullName属性，并且是惰性求值
+    obj.fullName = 'kobe bryant'; //不通过set也无法直接修改
+    console.log(obj.fullName);
+
+</script>
+</body>
+</html>

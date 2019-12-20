@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>05_Function扩展</title>
+</head>
+<body>
+<!--
+1. Function.prototype.bind(obj) :
+  * 作用: 将函数内的this绑定为obj, 并将函数返回
+2. 面试题: 区别bind()与call()和apply()?
+  * 都能指定函数中的this
+  * call()/apply()是立即调用函数
+  * bind()是将函数返回
+-->
+<script type="text/javascript">
+  var obj = {
+    username: 'kobe'
+  };
+  function fun(data1, data2){ 
+    console.log(this, data1, data2);//this指向window
+  }
+
+  // call与apply都可以指定函数的this，区别在传参的方式
+  // call:从第二个参数开始，依次传入
+  fun.call(obj, 11, 22); //立即调用函数，执行函数内容 -{username: "kobe"} 11 22
+  // apply:将要传入的参数放入数组中
+  fun.apply(obj,[11, 22]); //立即调用函数，执行函数内容-{username: "kobe"} 11 22
+
+  // bind方法特点：绑定完this不会立即调用当前函数，而是将函数返回
+  // 主要用于回调函数，因为回调函数不能立即执行
+  fun.bind(obj, 11, 12); //不会立即调用，而是返回函数本身
+  fun.bind(obj, 11, 12)();//手动调用
+
+  // 举例
+  setInterval(function(){
+    // 修改当前回调函数的this指向，但不能立即执行
+  }.bind(obj),1000)
+</script>
+</body>
+</html>

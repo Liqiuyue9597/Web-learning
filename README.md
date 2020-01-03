@@ -7,3 +7,10 @@ https://www.bilibili.com/video/av73233449?spm_id_from=333.337.b_62696c692d686561
 
 HTML&CSS是尚硅谷李立超2019最新版笔记。
 ECMAScript是尚硅谷2017/12月的视频笔记。
+
+
+学完HTML/CSS/JS以及ES之后，我开始学习框架。但是在学习框架之前，我看了一些Node的基础，比如怎么export和NPM的知识，不需要学得太深。https://www.bilibili.com/video/av75653013?from=search&seid=10459817069764821849 这个也是超哥的基础课，讲得挺清楚。
+
+然后，在React和Vue之中选择学习Vue框架。这个老师讲的不错https://www.bilibili.com/video/av59594689?p=148
+选择Vue框架仅仅是因为Vue作者比较活跃，没有关注其他的原因。其实两个框架最好都学习，这里就不要纠结。
+

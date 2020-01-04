@@ -1,4 +1,4 @@
-# vuemall
+# mallbyvue
 
 ## Project setup
 ```

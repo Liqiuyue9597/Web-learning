@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, 'Microsoft Yahei', sans-serif;
+  color: #7e8793;
+  -webkit-font-smoothing: antialiased;
+}
+/* 头部 */
+.home-header {
+  background: url('../images/home-bg.png') no-repeat;
+  background-size: 100% auto;
+  text-align: center;
+  padding-bottom: 1.2rem;
+}
+.home-header > img {
+  width: 62%;
+  margin: 2.3rem;
+}
+.home-header form {
+  background-color: #fff;
+  width: 92%;
+  margin: 0 auto;
+  line-height: 2.2rem;
+  border-radius: 2.2rem;
+}
+.home-header form input,
+.home-header form button {
+  border: none;
+  background-color: #fff;
+}
+.home-header form input {
+  width: 80%;
+  outline: none;
+  font-size: 0.9rem;
+  color: #9da0a3;
+}
+.home-header form button {
+  color: #5bd4c7;
+  font-size: 0.9rem;
+}
+
+/* 中间分类部分 */
+.home-catagories dt {
+  display: flex;
+  align-items: center;
+}
+.home-catagories dt div {
+  font-weight: bold;
+  color: #404855;
+  font-size: 1rem;
+}
+.home-catagories dt img {
+  width: 3rem;
+  margin: 0 1rem;
+}
+.home-catagories dd{
+  margin: 1rem 3rem 2rem 0.6rem;
+}
+.home-catagories dd .tag {
+  display: inline-block;
+  text-decoration: none;
+  background: #f5f8f9;
+  color: #7e8793;
+  border-radius: 2rem;
+  /* 加文字背景块 */
+  padding: 0.4rem 1rem;
+  margin: .3rem .3rem;
+  font-size: .8rem;
+}
+
+/* 底部footer部分 */
+.home-footer {
+  width: 70%;
+  font-size: 0.8rem;
+  margin: 0 auto;
+}
+/* p标签自带margin非常大 */
+.home-footer p {
+  margin: .2rem auto;
+}
+.home-footer p>a {
+  text-decoration: none;
+  color: #7e8793;
+}

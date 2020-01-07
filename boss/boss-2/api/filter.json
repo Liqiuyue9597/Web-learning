@@ -1,0 +1,52 @@
+[
+  {
+    "name": "学历",
+    "options": [
+      {"id":null, "text":"不限"},
+      {"id":1, "text":"大专"},
+      {"id":2, "text":"本科"},
+      {"id":3, "text":"硕士"},
+      {"id":4, "text":"博士"}
+    ]
+  },
+  {
+    "name": "经验",
+    "options": [
+      {"id":null, "text":"不限"},
+      {"id":1, "text":"大专"},
+      {"id":2, "text":"本科"},
+      {"id":3, "text":"硕士"},
+      {"id":4, "text":"博士"}
+    ]
+  },
+  {
+    "name": "经验",
+    "options": [
+      {"id":null, "text":"不限"},
+      {"id":1, "text":"大专"},
+      {"id":2, "text":"本科"},
+      {"id":3, "text":"硕士"},
+      {"id":4, "text":"博士"}
+    ]
+  },
+  {
+    "name": "经验",
+    "options": [
+      {"id":null, "text":"不限"},
+      {"id":1, "text":"大专"},
+      {"id":2, "text":"本科"},
+      {"id":3, "text":"硕士"},
+      {"id":4, "text":"博士"}
+    ]
+  },
+  {
+    "name": "经验",
+    "options": [
+      {"id":null, "text":"不限"},
+      {"id":1, "text":"大专"},
+      {"id":2, "text":"本科"},
+      {"id":3, "text":"硕士"},
+      {"id":4, "text":"博士"}
+    ]
+  }
+]

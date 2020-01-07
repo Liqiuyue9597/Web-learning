@@ -1,0 +1,42 @@
+[
+  {
+    "logo": "./images/company.jpg",
+    "department": "美团新零售业务部",
+    "salary": "11-18K",
+    "title": "Web前端",
+    "company": "中软国际",
+    "props":["成都","3-5年","本科"]
+  },
+  {
+    "logo": "./images/company.jpg",
+    "department": "美团新零售业务部",
+    "salary": "11-18K",
+    "title": "Web前端",
+    "company": "中软国际",
+    "props":["成都","3-5年","本科"]
+  },
+  {
+    "logo": "./images/company.jpg",
+    "department": "美团新零售业务部",
+    "salary": "11-18K",
+    "title": "Web前端",
+    "company": "中软国际",
+    "props":["成都","3-5年","本科"]
+  },
+  {
+    "logo": "./images/company.jpg",
+    "department": "美团新零售业务部",
+    "salary": "11-18K",
+    "title": "Web前端",
+    "company": "中软国际",
+    "props":["成都","3-5年","本科"]
+  },
+  {
+    "logo": "./images/company.jpg",
+    "department": "美团新零售业务部",
+    "salary": "11-18K",
+    "title": "Web前端",
+    "company": "中软国际",
+    "props":["成都","3-5年","本科"]
+  } 
+]

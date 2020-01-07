@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>「成都招聘信息」成都招聘网 - BOSS直聘</title>
+  <!-- <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.png"> -->
+  <link rel="shortcut icon" type="image/x-icon" href="https://static.zhipin.com/zhipin-geek/v116/h5/wap/images/favicon.png">
+  <link rel="stylesheet" href="./style/main.css">
+</head>
+
+<body>
+  <div class="container" id="app">
+    <div class="home-header">
+      <img src="./images/home-search-text.png" alt="">
+      <form action="">
+        <input type="text" placeholder="搜索职位/公司">
+        <button>搜索</button>
+      </form>
+    </div>
+
+    <div class="home-catagories">
+      <!-- 自定义列表 dt:标题部分 dd:内容部分 -->
+      <dl v-for="item in catagories">
+        <dt>
+          <img :src="item.icon" alt="">
+          <div>{{item.name}}</div>
+        </dt>
+        <dd>
+          <a href="#" class="tag" v-for="tag in item.tags">{{tag}}</a>
+        </dd>
+      </dl>
+    </div>
+    
+    <div class="home-footer">
+      <p>违法和不良信息举报邮箱：jubao@kanzhun.com</p>
+      <p>企业服务热线和举报投诉：400 065 5799</p>
+      <p>
+        <a href="">人力资源服务许可证</a>
+      </p>
+    </div>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        catagories: []
+      },
+      created() {
+        fetch('http://127.0.0.1:5500/boss/boss-2/api/index.json')
+          .then(res => {return res.json()})
+          .then(data => app.catagories = data)
+      }
+    })
+
+    // axios返回promise对象直接拿到数据
+    // axios({
+    //   url: 'http://127.0.0.1:5500/boss/boss-2/api/index.json'
+    // }).then(res => {
+    //   console.log(res)
+    // })
+    // 未安装axios插件使用自带的原生HTTP请求fetch
+    
+  </script>
+</body>
+
+</html>

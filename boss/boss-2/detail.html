@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container" id="app">
     <div class="top-bar flex padded">
       <img src="./images/logo.png" alt="">
       <a href="#">搜索职位<i class="search-icon"></i></a>
@@ -105,91 +105,18 @@
 
     <div class="related-job padded">
       <h5>相似职位</h5>
-      <div class="job-item flex">
-        <img src="./images/campany.jpg" alt="">
+      <div class="job-item flex" v-for="item in relatedJobs">
+        <img :src="item.logo" alt="">
         <div class="text">
           <div class="title flex">
-            Web前端
-            <span class="salary">11-18K</span>
+            {{item.title}}
+            <span class="salary">{{item.salary}}</span>
           </div>
           <div class="flex">
             <div class="company">
-              中软国际
-            </div>
-            <button type="button" class="btn">立即沟通</button>
-          </div>
-        </div>
-      </div>
-      <div class="job-item flex">
-        <img src="./images/campany.jpg" alt="">
-        <div class="text">
-          <div class="title flex">
-            Web前端
-            <span class="salary">11-18K</span>
-          </div>
-          <div class="flex">
-            <div class="company">
-              中软国际
-            </div>
-            <button type="button" class="btn">立即沟通</button>
-          </div>
-        </div>
-      </div>
-      <div class="job-item flex">
-        <img src="./images/campany.jpg" alt="">
-        <div class="text">
-          <div class="title flex">
-            Web前端
-            <span class="salary">11-18K</span>
-          </div>
-          <div class="flex">
-            <div class="company">
-              中软国际
-            </div>
-            <button type="button" class="btn">立即沟通</button>
-          </div>
-        </div>
-      </div>
-      <div class="job-item flex">
-        <img src="./images/campany.jpg" alt="">
-        <div class="text">
-          <div class="title flex">
-            Web前端
-            <span class="salary">11-18K</span>
-          </div>
-          <div class="flex">
-            <div class="company">
-              中软国际
-            </div>
-            <button type="button" class="btn">立即沟通</button>
-          </div>
-        </div>
-      </div>
-      <div class="job-item flex">
-        <img src="./images/campany.jpg" alt="">
-        <div class="text">
-          <div class="title flex">
-            Web前端
-            <span class="salary">11-18K</span>
-          </div>
-          <div class="flex">
-            <div class="company">
-              中软国际
-            </div>
-            <button type="button" class="btn">立即沟通</button>
-          </div>
-        </div>
-      </div>
-      <div class="job-item flex">
-        <img src="./images/campany.jpg" alt="">
-        <div class="text">
-          <div class="title flex">
-            Web前端
-            <span class="salary">11-18K</span>
-          </div>
-          <div class="flex">
-            <div class="company">
-              中软国际
+              {{item.company}}
+              ·
+              {{item.props[0]}} 
             </div>
             <button type="button" class="btn">立即沟通</button>
           </div>
@@ -221,6 +148,21 @@
       <a href="#">美团新零售业务部web前端招聘</a><i></i>
     </div>
   </div>
+
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        relatedJobs: []
+      },
+      created() {
+       fetch('http://127.0.0.1:5500/boss/boss-2/api/jobs.json') 
+        .then(res => res.json()).then(data => app.relatedJobs = data)
+      }
+    })
+  
+  </script>
 </body>
 
 </html>

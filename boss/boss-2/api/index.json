@@ -1,0 +1,27 @@
+[
+  {
+    "icon": "./images/technology.png",
+    "name": "技术",
+    "tags": ["Java", "PHP", "Web前端", "数据挖掘","C++", "Python"]
+  },
+  {
+    "icon": "./images/market.png",
+    "name": "技术",
+    "tags": ["Java", "PHP", "Web前端", "数据挖掘","C++", "Python"]
+  },
+  {
+    "icon": "./images/operate.png",
+    "name": "技术",
+    "tags": ["Java", "PHP", "Web前端", "数据挖掘","C++", "Python"]
+  },
+  {
+    "icon": "./images/senior.png",
+    "name": "技术",
+    "tags": ["Java", "PHP", "Web前端", "数据挖掘","C++", "Python"]
+  },
+  {
+    "icon": "./images/designer.png",
+    "name": "技术",
+    "tags": ["Java", "PHP", "Web前端", "数据挖掘","C++", "Python"]
+  }
+]

@@ -1,11 +1,17 @@
-/* 没事千万别像这样自己初始化，在GitHub上找到标准的normal.css引入就行了 */
+/* 没事千万别像这样自己初始化样式，在GitHub上找到通用的normal.css引入就行了 */
 body {
   margin: 0;
   font-family: Arial, Helvetica, 'Microsoft Yahei', sans-serif;
   color: #7e8793;
   -webkit-font-smoothing: antialiased;
 }
+* {
+  box-sizing: border-box;
+}
 /* 将自带的样式去掉 */
+input {
+  outline: none;
+}
 dl,dd,dt,ul {
   margin: 0;
   padding: 0;
@@ -15,6 +21,15 @@ li {
 }
 a{
   text-decoration: none;
+}
+/* 太多地方用到flex布局，专门写一个类 */
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.padded {
+  padding: 1rem;
 }
 
 /* 头部 */
@@ -97,12 +112,6 @@ a{
 
 
 /* list-page */
-/* 太多地方用到flex布局，专门写一个类 */
-.flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 /* header部分 */
 .list-header {
   padding: 13px 1rem 13px 1rem;
@@ -226,3 +235,4 @@ a{
   padding-right: .8rem;
 }
 
+/* detail page */

@@ -14,5 +14,5 @@ ECMAScript是尚硅谷2017/12月的视频笔记。
 然后，在React和Vue之中选择学习Vue框架。这个老师讲的不错https://www.bilibili.com/video/av59594689?p=148
 选择Vue框架仅仅是因为Vue作者比较活跃，没有关注其他的原因。其实两个框架最好都学习，这里就不要纠结。
 
-mallbyvue是vue学习视频的案例，但是我觉得这个案例略显low了一点....有点不想做。
-boss-1是在B站上找到的一个用CSS写，然后用vue抽取的boss直聘手机端案例，这个还不错。
+mallbyvue是上面vue学习视频的案例，但是我觉得这个案例略显low了一点....有点不想做，创建了项目一直没有开始做。
+boss是在B站上找到的一个用CSS写，然后用vue抽取的boss直聘手机端案例，这个还不错。boss-1是纯CSS，boss-2是vue抽取

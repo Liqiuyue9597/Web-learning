@@ -1,7 +1,7 @@
 /* 没事千万别像这样自己初始化样式，在GitHub上找到通用的normal.css引入就行了 */
 body {
   margin: 0;
-  font-family: Arial, Helvetica, 'Microsoft Yahei', sans-serif;
+  font-family: arial,verdana,helvetica,Microsoft Yahei,sans-serif;
   color: #7e8793;
   -webkit-font-smoothing: antialiased;
 }
@@ -12,7 +12,7 @@ body {
 input {
   outline: none;
 }
-dl,dd,dt,ul {
+dl,dd,dt,ul,td,p {
   margin: 0;
   padding: 0;
 }
@@ -29,9 +29,23 @@ a{
   align-items: center;
 }
 .padded {
-  padding: 1rem;
+  padding: .7rem 1.2rem;
 }
-
+/* 分离出的公共样式 */
+.line {
+  display: inline-block;
+  width: 1px;
+  height: .7rem;
+  margin: 0 .55rem;
+  vertical-align: middle;
+}
+.btn {
+  border: none;
+  border-radius: 1rem;
+  font-size: .9rem;
+  line-height: 2rem;
+  padding: 0 1.3rem;
+}
 /* 头部 */
 .home-header {
   background: url('../images/home-bg.png') no-repeat;
@@ -217,7 +231,6 @@ a{
   width: 100%;
   color: #404855;
   padding-left: 1rem;
-
 }
 .job-list .text .salary {
   font-size: 1.2rem;
@@ -236,3 +249,227 @@ a{
 }
 
 /* detail page */
+.top-bar img{
+  height: 1.05rem;
+}
+.top-bar > a {
+  width: 7rem;
+  line-height: 1.5rem;
+  border: 1px solid #5bd4c7;
+  padding-left: .8rem;
+  font-size: .8rem;
+  color: #c0c4cf;
+  border-radius: 1rem;
+  position: relative;
+}
+.top-bar a .search-icon{
+  position: absolute;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: url('../images/icons.png') no-repeat;
+  background-position: center 3px;
+  background-size: 1.1rem;
+  top: 0;
+  left: 5.5rem;
+}
+
+.job-info {
+  background-color: #62d5c8;
+  color: #fff;
+}
+.job-info .title span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.job-info .props {
+  font-size: .75rem;
+  margin: .4rem 0;
+}
+.job-info .props .line {
+  background-color: #fff;
+}
+.job-info .tags {
+  padding: .3rem 0 .7rem 0;
+}
+.job-info .tags span{
+  border: 1px solid #ffffff;
+  border-radius: 1rem;
+  font-size: .7rem;
+  padding: .2rem .4rem;
+  margin-right: .7rem;
+}
+.job-info .update-info {
+  font-size: .65rem;
+  opacity: .6;
+}
+
+.user-info {
+  background-color: #eefbf9;
+}
+.user-info > img {
+  width: 3.2rem;
+  border-radius: 2rem;
+}
+.user-info .name-info{
+  width: 100%;
+  margin-left: 1rem;
+}
+.user-info .name-info .name {
+  color: #414a60;
+}
+.user-info .name-info .like {
+  font-size: .75rem;
+  /* margin-left: 1.5rem; */
+  line-height: 3rem;
+  color: #fc6c38;
+}
+.user-info .name-info .like i {
+  background: url('../images/link-like.png') no-repeat;
+  background-size: .8rem;
+  width: 1.3rem;
+  height: .9rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 1.2rem;
+}
+.user-info .name-info .name > div {
+  font-size: .75rem;
+  color: #9fa3af;
+} 
+
+.user-info .name-info .btn {
+  background-color: #62d5c8;
+  color: #fff;
+}
+
+.job-detail h3 {
+  font-size: 1rem;
+  color: #414a60;
+  font-weight: 700;
+  position: relative;
+}
+.job-detail h3:after {
+  content: '';
+  display: inline-block;
+  width: 1rem;
+  height: 1px;
+  background-color: #5bd4c7;
+  position: absolute;
+  left: 0;
+  top: 2rem;
+}
+.job-detail .text {
+  padding-top: .5rem;
+  font-size: .9rem;
+  line-height: 1.6rem;
+}
+.job-detail .text table {
+  margin-top: .6rem;
+  border: 1px solid #ebecef;
+  font-size: .75rem;
+  width: 100%;
+  padding: .2rem 0;
+}
+.job-detail .text table td {
+  width: 50%;
+  padding: 0.15rem .6rem;
+}
+.job-detail .text table .t {
+  display: inline-block;
+  color: #9fa3b0;
+ 
+}
+
+.company-info {
+  background-color: #eefbf9;
+}
+.company-info img {
+  width: 4rem;
+}
+.company-info .text{
+  width: 100%;
+  margin-left: 1rem;
+}
+.company-info .text .title {
+  color: #414a60;
+  margin-bottom: .5rem;
+}
+.company-info .text .company div {
+  font-size: .75rem;
+} 
+.company-info .text .company .tags {
+  color: #9fa3af;
+}
+.company-info .company .tags .line {
+  background-color: #e0e0e0;
+}
+.company-info .btn {
+  background-color: #62d5c8;
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.related-job h5 {
+  font-weight: normal;
+}
+.related-job .job-item {
+  padding: 1.2rem 0;
+  border-top: 1px solid #ebeff0;
+}
+.related-job .job-item:last-child {
+  padding-bottom: 0;
+}
+.related-job .job-item img {
+  width: 3.5rem;
+  border-radius: .4rem;
+}
+.related-job .job-item .text {
+  width: 100%;
+  color: #404855;
+  padding-left: 1rem;
+}
+.related-job .job-item .text .salary {
+  font-size: 1rem;
+  color: #fc6c38;
+  padding-right: 1.2rem;
+}
+.job-item .company {
+  font-size: .8rem;
+}
+.job-item .btn {
+  background-color: #fff;
+  border: 1px solid #62d5c8;
+  color: #62d5c8;
+  margin-top: .2rem;
+}
+.related-company {
+  margin: 0rem 3rem 0rem 1.2rem;
+}
+.related-company h5 {
+  font-weight: normal;
+}
+.related-company .company {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ebeff0;
+}
+.related-company .company a{
+  font-size: .75rem;
+  color: #9fa3b0;
+  line-height: 1.5rem;
+  padding-right: 1rem;
+}
+
+.job-footer a {
+  font-size: .75rem;
+  color: #9fa3b0;
+}
+.job-footer a:after {
+  content: '';
+  display: inline-block;
+  width: .5rem;
+  height: .5rem;
+  border: 1px solid #9fa3b0;
+  border-style: none solid solid none;
+  transform: rotateZ(-45deg);
+  margin: 0 .2rem;
+}

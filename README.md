@@ -17,4 +17,9 @@ ECMAScript是尚硅谷2017/12月的视频笔记。
 mallbyvue是上面vue学习视频的案例，但是我觉得这个案例略显low了一点....有点不想做，创建了项目一直没有开始做。
 boss是在B站上找到的一个用CSS写，然后用vue抽取的boss直聘手机端案例，这个还不错。
 
-boss-1是纯CSS，boss-2是vue抽取。
+boss-1是纯CSS，boss-2是vue抽取。2020/1/09已经完成。
+
+Node-Vue-MOBA是王者荣耀手机网站全栈项目。2020/1/11开始。
+##### 涉及的技术栈为
+- NodeJS + MongoDB
+- VueJS + ElementUI

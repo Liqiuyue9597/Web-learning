@@ -24,6 +24,6 @@ Node-Vue-MOBA是王者荣耀手机网站全栈项目。2020/1/11开始。
 - NodeJS + MongoDB
 - VueJS + ElementUI
 
-**在做这个项目的时候要特别注意一个问题：axios中的get/post/put等方法中url地址不要斜杠**`/`**，例如获取http://localhost:3000/categories的数据，应该写**`get('categories',[options])`**。但是在用Node的express写接口时的get/post/put等等路由方法要加**`/`**，例如**`express().get('/categories', callback)`**。**
+**在做这个项目的时候要特别注意一个问题：axios中的get/post/put等方法中url地址不要斜杠**`/`**，例如获取**http://localhost:3000/categories**的数据，应该写**`get('categories',[options])`**。但是在用Node的express写接口时的get/post/put等等路由方法要加**`/`**，例如**`express().get('/categories', callback)`**。**
 
 最开始我少写`/`导致post请求返回404 Not Found，找了好久错误，才发现。

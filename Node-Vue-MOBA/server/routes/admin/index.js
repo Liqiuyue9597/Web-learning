@@ -1,34 +1,42 @@
 module.exports = app => {
   const express = require('express')
   const router = express.Router()
-  const Category = require('../../models/Category')
   // 1.1向数据库新增数据
-  router.post('/categories', async (req,res) => {
-    const model = await Category.create(req.body)
+  router.post('/', async (req,res) => {
+    const model = await req.Model.create(req.body)
     res.send(model)
   })
   // 1.2如果数据id存在则向数据库中修改此数据
-  router.put('/categories/:id', async (req,res) => {
-    const model = await Category.findByIdAndUpdate(req.params.id,req.body)
+  router.put('/:id', async (req,res) => {
+    const model = await req.Model.findByIdAndUpdate(req.params.id,req.body)
     res.send(model)
   })
   // 1.3删除数据库中的数据
-  router.delete('/categories/:id', async (req,res) => {
-    await Category.findByIdAndDelete(req.params.id,req.body)
+  router.delete('/:id', async (req,res) => {
+    await req.Model.findByIdAndDelete(req.params.id,req.body)
     res.send({
       success: true
     })
   })
   // 在数据库中查询数据
-  router.get('/categories', async (req,res) => {
-    const items = await Category.find().populate('parent').limit(10)
+  router.get('/', async (req,res) => {
+    const queryOption = {}
+    if(req.Model.modelName === 'Category') {
+      queryOption.populate = 'parent'
+    }
+    // populate会将ref连接的collection的数据完整打印
+    const items = await req.Model.find().setOptions(queryOption).limit(10)
     res.send(items)
   })
   // 获取详情页
-  router.get('/categories/:id', async (req,res) => {
-    const model = await Category.findById(req.params.id)
+  router.get('/:id', async (req,res) => {
+    const model = await req.Model.findById(req.params.id)
     res.send(model)
   })
-
-  app.use('/admin/api', router)
+// 通用的CRUD接口
+  app.use('/admin/api/rest/:resource', async (req,res,next) => {
+    const modelName = require('inflection').classify(req.params.resource)
+    req.Model = require(`../../models/${modelName}`)
+    next()
+  } ,router)
 }

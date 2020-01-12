@@ -25,10 +25,12 @@ export default {
     };
   },
   methods: {
-    // 获取数据库中的数据
+    // 获取数据库中的数据通过items展示
     async fetch() {
-      const res = await this.$http.get("categories");
+      const res = await this.$http.get("rest/categories");
       this.items = res.data;
+      // eslint-disable-next-line no-console
+      console.log(this.items)
     },
     async remove(row) {
       this.$confirm(`是否删除分类："${row.name}"`, '提示', {
@@ -36,7 +38,7 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(async () => {
-        await this.$http.delete(`categories/${row._id}`)
+        await this.$http.delete(`rest/categories/${row._id}`)
         this.$message({
           type: 'success',
           message: '删除成功!'

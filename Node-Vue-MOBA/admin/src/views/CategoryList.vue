@@ -29,8 +29,6 @@ export default {
     async fetch() {
       const res = await this.$http.get("rest/categories");
       this.items = res.data;
-      // eslint-disable-next-line no-console
-      console.log(this.items)
     },
     async remove(row) {
       this.$confirm(`是否删除分类："${row.name}"`, '提示', {

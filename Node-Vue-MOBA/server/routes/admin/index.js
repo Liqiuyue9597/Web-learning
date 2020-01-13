@@ -35,8 +35,15 @@ module.exports = app => {
   })
 // 通用的CRUD接口
   app.use('/admin/api/rest/:resource', async (req,res,next) => {
+    // 引入inflection库对小写的字符串做处理变为大写单数字符串
     const modelName = require('inflection').classify(req.params.resource)
     req.Model = require(`../../models/${modelName}`)
     next()
   } ,router)
+
+  const multer = require('multer')
+  const file = 
+  app.post('admin/api/upload', async (req,res) => {
+
+  })
 }

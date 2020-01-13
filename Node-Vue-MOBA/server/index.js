@@ -4,7 +4,7 @@ const app = express()
 
 app.use(require("cors")())
 app.use(express.json())
-app.use('/admin/api/upload', express.static)
+app.use('/uploads', express.static(__dirname + '/uploads'))
 
 require('./routes/admin')(app)
 require('./plugins/db')(app)

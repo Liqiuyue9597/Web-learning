@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+// 路由的懒加载
 const Main = () => import('@/views/Main.vue')
 const CategoryEdit = () => import('@/views/CategoryEdit.vue')
 const CategoryList = () => import('@/views/CategoryList.vue')
@@ -8,6 +9,8 @@ const ItemEdit = () => import('@/views/ItemEdit.vue')
 const ItemList = () => import('@/views/ItemList.vue')
 const HeroEdit = () => import('@/views/HeroEdit.vue')
 const HeroList = () => import('@/views/HeroList.vue')
+const ArticleEdit = () => import('@/views/ArticleEdit.vue')
+const ArticleList = () => import('@/views/ArticleList.vue')
 
 Vue.use(VueRouter)
 
@@ -57,6 +60,20 @@ const routes = [
       {
         path: '/heroes/list',
         component: HeroList
+      },
+
+      {
+        path: '/articles/create',
+        component: ArticleEdit
+      },
+      {
+        path: '/articles/edit/:id',
+        component: ArticleEdit,
+        props: true
+      },
+      {
+        path: '/articles/list',
+        component: ArticleList
       }
     ]
   }

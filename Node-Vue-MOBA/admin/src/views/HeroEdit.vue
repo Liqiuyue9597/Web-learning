@@ -168,27 +168,5 @@ export default {
 </script>
 
 <style>
-.file-uploader .el-upload {
-  border: 1px dashed #d9d9d9;
-  border-radius: 6px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.file-uploader .el-upload:hover {
-  border-color: #409eff;
-}
-.file-uploader-icon {
-  font-size: 20px;
-  color: #8c939d;
-  width: 78px;
-  height: 78px;
-  line-height: 78px;
-  text-align: center;
-}
-.file {
-  width: 78px;
-  height: 78px;
-  display: block;
-}
+
 </style>

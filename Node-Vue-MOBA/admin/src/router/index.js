@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 // 路由的懒加载
+const Login = () => import('@/views/Login.vue')
 const Main = () => import('@/views/Main.vue')
 const CategoryEdit = () => import('@/views/CategoryEdit.vue')
 const CategoryList = () => import('@/views/CategoryList.vue')
@@ -19,6 +20,12 @@ const AdminUserList = () => import('@/views/AdminUserList.vue')
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+
   {
     path: '/',
     name: 'main',

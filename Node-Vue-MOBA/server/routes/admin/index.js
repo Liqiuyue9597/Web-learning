@@ -56,18 +56,34 @@ module.exports = app => {
   })
 
   // 用户登录的接口
-  app.post('/admin/api/login', (req, res) => {
-    const {username, password} = req.body
+  app.post('/admin/api/login', async (req, res) => {
+    const {
+      username,
+      password
+    } = req.body
     // 1.根据用户名找用户
     const AdminUser = require('../../models/AdminUser')
-    const user = await AdminUser.findOne({username})
-    if(!user) {
+    // select('+...')用+去覆盖select:false的命令，能够找到password
+    const user = await AdminUser.findOne({username}).select('+password')
+    if (!user) {
       return res.status(422).send({
         message: '用户不存在'
       })
     }
+    // 这个错误应该全局捕获，所以去http里用interceptor全局捕获
+
     // 2.校验密码
+    // 将hash的密码和用户输入的密码比较
+    const isValid = require('bcryptjs').compareSync(password, user.password)
+    if (!isValid) {
+      return res.status(422).send({
+        message: '密码错误'
+      })
+    }
 
     // 3.返回token
+    const jwt = require('jsonwebtoken')
+    const token = jwt.sign({id: user._id}, app.get('secret'))
+    res.send({token})
   })
 }

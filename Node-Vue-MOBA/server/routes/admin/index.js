@@ -57,16 +57,13 @@ module.exports = app => {
 
   // 用户登录的接口
   app.post('/admin/api/login', async (req, res) => {
-    const {
-      username,
-      password
-    } = req.body
+    const {username,password} = req.body
     // 1.根据用户名找用户
     const AdminUser = require('../../models/AdminUser')
     // select('+...')用+去覆盖select:false的命令，能够找到password
-    const user = await AdminUser.findOne({username}).select('+password')
+    const user = await AdminUser.findOne({name:username}).select('+password')
     if (!user) {
-      return res.status(422).send({
+      return res.status(421).send({
         message: '用户不存在'
       })
     }

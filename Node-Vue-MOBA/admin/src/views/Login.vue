@@ -26,8 +26,16 @@ export default {
   methods: {
     async login() {
       const res = await this.$http.post('login', this.model)
-      // eslint-disable-next-line no-console
-      console.log(res)
+      // 将token存储在浏览器中，local表示关闭页面仍然存在，sessionStorage表示关闭后就没有有
+      localStorage.token = res.data.token
+      
+      this.$message.success({
+        message: '登录成功',
+      })
+
+      setTimeout(() => {
+         this.$router.push('/')
+      }, 1500)
     }
   }
 }

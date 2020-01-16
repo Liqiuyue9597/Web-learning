@@ -10,6 +10,6 @@ app.use('/uploads', express.static(__dirname + '/uploads'))
 require('./routes/admin')(app)
 require('./plugins/db')(app)
 
-app.listen(3130, () => {
-  console.log('http://localhost:3130')
+app.listen(3100, () => {
+  console.log('http://localhost:3100')
 })

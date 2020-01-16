@@ -27,7 +27,7 @@ export default {
     // 获取数据库中的数据通过items展示
     async fetch() {
       const res = await this.$http.get("rest/ads");
-      this.items = res.data;
+      this.items = res.data
     },
     async remove(row) {
       this.$confirm(`是否删除："${row.name}"`, '提示', {

@@ -2,7 +2,16 @@ import axios from 'axios'
 import Vue from 'vue'
 
 const http = axios.create({
-  baseURL: 'http://localhost:3130/admin/api'
+  baseURL: 'http://localhost:3200/admin/api'
+})
+
+http.interceptors.request.use(config => {
+  if(localStorage.token){
+    config.headers.Authorization = 'Bearer ' + localStorage.token
+  }
+  return config
+}, err => {
+  return Promise.reject(err)
 })
 
 http.interceptors.response.use(res => {
@@ -13,7 +22,6 @@ http.interceptors.response.use(res => {
       message: err.response.data.message
     })
   }
-
   return Promise.reject(err)
 })
 

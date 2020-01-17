@@ -16,7 +16,7 @@
               class="file-uploader"
               :action="$http.defaults.baseURL + '/upload'"
               :show-file-list="false"
-              :on-success="afterUpload"
+              :on-success="res => $set(this.model, 'avatar', res.url)"
             >
               <img v-if="model.avatar" :src="model.avatar" class="file" />
               <i v-else class="el-icon-plus file-uploader-icon"></i>
@@ -80,7 +80,8 @@
               <el-form-item label="图标">
                 <el-upload
                   class="file-uploader"
-                  :action="$http.defaults.baseURL + '/upload'"
+                  :action="uploadUrl"
+                  :headers="getAuthHeaders()"
                   :show-file-list="false"
                   :on-success="res => $set(item, 'icon', res.url)"
                 >

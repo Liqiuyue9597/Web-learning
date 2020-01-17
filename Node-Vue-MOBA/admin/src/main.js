@@ -8,6 +8,22 @@ Vue.config.productionTip = false
 import http from './http'
 Vue.prototype.$http = http
 
+// 定义一个全局的代码块
+Vue.mixin({
+  computed: {
+    uploadUrl() {
+      return http.defaults.baseURL + '/upload'
+    }
+  },
+  methods: {
+    getAuthHeaders() {
+      return {
+        Authorization: `Bearer ${localStorage.token || ''}`
+      }
+    }
+  }
+})
+
 // 将共用样式挂载在全局
 import './style.css'
 

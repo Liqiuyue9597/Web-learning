@@ -29,7 +29,7 @@ module.exports = app => {
     })
   })
 
-  // 在数据库中查询数据(资源列表)
+  // 1.4在数据库中查询数据(资源列表)
   router.get('/', authMiddleware(), async (req, res) => {
     const queryOption = {}
     if (req.Model.modelName === 'Category') {
@@ -54,6 +54,8 @@ module.exports = app => {
   const upload = multer({
     dest: __dirname + '/../../uploads'
   })
+  // upload.single('file')中file是表单formData的entries，这里默认是file，可以在formData.entries中修改
+  // FormData.entries() 方法返回一个 iterator对象 ，此对象可以遍历访问FormData中的键值对
   app.post('/admin/api/upload', authMiddleware(), upload.single('file'), async (req, res) => {
     const file = req.file
     file.url = `http://localhost:3130/uploads/${file.filename}`

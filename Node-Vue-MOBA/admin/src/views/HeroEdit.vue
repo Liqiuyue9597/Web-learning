@@ -146,10 +146,6 @@ export default {
       // this.model = res.data
       this.model = Object.assign({}, this.model, res.data);
     },
-    afterUpload(res) {
-      this.model.avatar = res.url;
-      // this.$set(this.model, 'icon', res.url)
-    },
     async fetchCategories() {
       const res = await this.$http.get(`rest/categories`);
       this.categories = res.data;

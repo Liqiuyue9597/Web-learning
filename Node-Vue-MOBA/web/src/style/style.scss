@@ -14,18 +14,28 @@ html {
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #f1f1f1;
+  line-height: 1.2em;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
   color: #999999;
+}
+// width,height
+.w-100 {
+  width: 100%;
+}
+.h-100 {
+  height: 100%;
 }
 
 // colors
 $colors: (
   "primary": #db9e3f,
   // 与css中的变量冲突时用引号引起来
-    "white": #fff,
+  "white": #fff,
   "light": #f9f9f9,
+  "gray-1": #666,
   "gray": #999,
   "dark-1": #343440,
   "dark": #222,
@@ -53,14 +63,16 @@ $colors: (
 // font-size
 $base-font-size: 1rem;
 $font-sizes: (
-  xs: 0.7692,
+  // 8px
+  xxs: 0.6154,
   //10px
-    sm: 0.9231,
+  xs: 0.7692,
   // 12px
-    md: 1,
-  lg: 1.0769,
+  sm: 0.9231,
+  md: 1,
   //14px
-    xl: 1.2308 //16px
+  lg: 1.0769,
+  xl: 1.2308 //16px
 );
 
 @each $sizeKey, $size in $font-sizes {
@@ -129,9 +141,10 @@ $spacing-sizes: (
   0: 0,
   1: 0.25,
   2: 0.5,
-  3: 1,
-  4: 1.5,
-  5: 3
+  3: .75,
+  4: 1,
+  5: 1.5,
+  6: 3
 );
 
 @each $typeKey, $type in $spacing-types {
@@ -160,6 +173,25 @@ $spacing-sizes: (
       .#{$typeKey}#{$directionKey}-#{$sizeKey} {
         #{$type}-#{$direction}: $size * $spacing-base-size;
       }
+    }
+  }
+}
+
+// 按钮
+.btn {
+  border: none;
+  border-radius: 0.1538rem;
+  font-size: map-get($font-sizes, "sm") * $base-font-size;
+  padding: .55rem .7rem;
+}
+
+// nav-item
+.nav{
+  .nav-item {
+    border-bottom: 3px solid transparent;
+    padding-bottom: .2rem;
+    &.active {
+      border-bottom: 3px solid #fff;
     }
   }
 }

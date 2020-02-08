@@ -1,4 +1,5 @@
 @import "./normalize.css";
+@import "./variable";
 
 // reset
 * {
@@ -21,6 +22,10 @@ body {
 a {
   color: #999999;
 }
+
+img {
+  vertical-align: top;
+}
 // width,height
 .w-100 {
   width: 100%;
@@ -29,18 +34,6 @@ a {
   height: 100%;
 }
 
-// colors
-$colors: (
-  "primary": #db9e3f,
-  // 与css中的变量冲突时用引号引起来
-  "white": #fff,
-  "light": #f9f9f9,
-  "gray-1": #666,
-  "gray": #999,
-  "dark-1": #343440,
-  "dark": #222,
-  "black": #000
-);
 
 // text and background-color的color
 @each $colorKey, $color in $colors {
@@ -61,19 +54,6 @@ $colors: (
 }
 
 // font-size
-$base-font-size: 1rem;
-$font-sizes: (
-  // 8px
-  xxs: 0.6154,
-  //10px
-  xs: 0.7692,
-  // 12px
-  sm: 0.9231,
-  md: 1,
-  //14px
-  lg: 1.0769,
-  xl: 1.2308 //16px
-);
 
 @each $sizeKey, $size in $font-sizes {
   .fs-#{$sizeKey} {
@@ -89,14 +69,9 @@ $font-sizes: (
 .flex-column {
   flex-direction: column;
 }
-
-$flex-jc: (
-  start: flex-start,
-  end: flex-end,
-  center: center,
-  between: space-between,
-  around: space-around
-);
+.flex-wrap {
+  flex-wrap: wrap;
+}
 
 @each $key, $value in $flex-jc {
   .jc-#{$key} {
@@ -104,12 +79,6 @@ $flex-jc: (
   }
 }
 
-$flex-ai: (
-  start: flex-start,
-  end: flex-end,
-  center: center,
-  stretch: stretch
-);
 
 @each $key, $value in $flex-ai {
   .ai-#{$key} {
@@ -126,26 +95,6 @@ $flex-ai: (
 }
 
 // spacing
-$spacing-types: (
-  m: margin,
-  p: padding
-);
-$spacing-direction: (
-  t: top,
-  b: bottom,
-  l: left,
-  r: right
-);
-$spacing-base-size: 1rem;
-$spacing-sizes: (
-  0: 0,
-  1: 0.25,
-  2: 0.5,
-  3: .75,
-  4: 1,
-  5: 1.5,
-  6: 3
-);
 
 @each $typeKey, $type in $spacing-types {
   // m-1 margin: 0
@@ -187,11 +136,35 @@ $spacing-sizes: (
 
 // nav-item
 .nav{
+  display: flex;
   .nav-item {
     border-bottom: 3px solid transparent;
     padding-bottom: .2rem;
     &.active {
-      border-bottom: 3px solid #fff;
+      color: map-get($map: $colors, $key: 'primary');
+      border-bottom-color: map-get($map: $colors, $key:'primary');
     }
+    &.nav-inverse {
+      color: map-get($map: $colors, $key: 'white');
+      border-bottom-color: map-get($map: $colors, $key: 'white');
+    }
+  }
+}
+
+// sprite
+.sprite {
+  background: url(../assets/image/index.png) no-repeat 0 0;
+  background-size: 28.8462rem;
+  // 不设置为inline-block不能设置宽高
+  display: inline-block;
+  &.sprite-news {
+    height: 1.5385rem;
+    width: 1.7692rem;
+    background-position: 63.546% 15.517%;
+  }
+  &.sprite-arrow {
+    height: 0.7692rem;
+    width: 0.7692rem;
+    background-position: 38.577% 52.076%;
   }
 }

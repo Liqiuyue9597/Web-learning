@@ -9,8 +9,8 @@
       <button type="button" class="btn bg-primary">立即下载</button>
     </div>
     <div class="bg-primary py-4">
-      <div class="nav d-flex jc-around text-white fs-lg">
-        <div class="nav-item active">
+      <div class="nav jc-around text-white fs-lg">
+        <div class="nav-item nav-inverse">
           <router-link class="nav-link" tag="div" to="/">首页</router-link>
         </div>
         <div class="nav-item">

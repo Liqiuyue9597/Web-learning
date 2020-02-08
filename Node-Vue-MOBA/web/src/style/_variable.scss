@@ -1,0 +1,69 @@
+
+// colors
+$colors: (
+  "primary": #db9e3f,
+  // 与css中的变量冲突时用引号引起来
+  "white": #fff,
+  "light": #f9f9f9,
+  "light-1": #d4d9de,
+  "gray-1": #666,
+  "gray": #999,
+  "bar": #4b67af,
+  "dark-1": #343440,
+  "dark": #222,
+  "black": #000
+);
+$border-color: map-get($colors, "light-1");
+
+// font-size
+$base-font-size: 1rem;
+$font-sizes: (
+  // 8px
+  xxs: 0.6154,
+  //10px
+  xs: 0.7692,
+  // 12px
+  sm: 0.9231,
+  md: 1,
+  //14px
+  lg: 1.0769,
+  xl: 1.2308 //16px
+);
+
+$flex-jc: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around
+);
+
+
+$flex-ai: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  stretch: stretch
+);
+
+// spacing
+$spacing-types: (
+  m: margin,
+  p: padding
+);
+$spacing-direction: (
+  t: top,
+  b: bottom,
+  l: left,
+  r: right
+);
+$spacing-base-size: 1rem;
+$spacing-sizes: (
+  0: 0,
+  1: 0.25,
+  2: 0.5,
+  3: .75,
+  4: 1,
+  5: 1.5,
+  6: 3
+);

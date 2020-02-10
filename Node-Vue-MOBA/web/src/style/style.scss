@@ -138,7 +138,7 @@ img {
 .nav{
   display: flex;
   .nav-item {
-    border-bottom: 3px solid transparent;
+    border-bottom: 2px solid transparent;
     padding-bottom: .2rem;
     &.active {
       color: map-get($map: $colors, $key: 'primary');
@@ -146,7 +146,7 @@ img {
     }
     &.nav-inverse {
       color: map-get($map: $colors, $key: 'white');
-      border-bottom-color: map-get($map: $colors, $key: 'white');
+      border-bottom: 3px solid map-get($map: $colors, $key: 'white');
     }
   }
 }

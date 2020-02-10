@@ -22,9 +22,9 @@
       <div class="swiper-pagination pagination-home px-3" slot="pagination"></div>
     </swiper>
     <!-- end of swiper -->
-    <div class="nav-icons mt-4 bg-white pt-4 text-center">
-      <div class="d-flex flex-wrap">
-        <div class="nav-item mb-3" v-for="n in 10" :key="n">
+    <div class="nav-icons mt-4 bg-white pt-5 text-center">
+      <div class="d-flex flex-wrap fs-lg">
+        <div class="nav-item mb-5" v-for="n in 10" :key="n">
           <i class="sprite sprite-news"></i>
           <div class="py-2">爆料站</div>
         </div>
@@ -35,34 +35,19 @@
       </div>
     </div>
     <!-- end of icons -->
-    <div class="card mt-4 bg-white px-4">
-      <div class="card-head d-flex py-4 ">
-        <i class="iconfont icon-menu-1"></i>
-        <div class="fs-xl flex-1 px-2">新闻资讯</div>
-        <i class="iconfont icon-menu"></i>
-      </div>
-      <div class="card-body">
-        <div class="nav jc-between fs-lg">
-          <div class="nav-item active">热门</div>
-          <div class="nav-item">新闻</div>
-          <div class="nav-item">公告</div>
-          <div class="nav-item">活动</div>
-          <div class="nav-item">赛事</div>
+    <m-list-card icon="menu-1" title="新闻资讯" :categories="newsCats">
+      <template #items="{category}">
+        <div class="py-2" v-for="(news,i) in category.newsList" :key="i">
+          <span>[{{news.categoryName}}]</span>
+          <span>|</span>
+          <span>{{news.title}}</span>
+          <span>{{news.date}}</span>
         </div>
-        <p>sss</p>
-        <p>sss</p>
-        <p>sss</p>
-        <p>sss</p>
-        <p>sss</p>
-        <p>sss</p>
-        <p>sss</p>
-        <p>sss</p>
-        <p>sss</p>
-        <p>sss</p>
-        <p>sss</p>
-        <p>sss</p>
-      </div>
-    </div>
+      </template>
+    </m-list-card>
+
+    <m-card icon="menu-1" title="英雄列表"></m-card>
+    <m-card icon="menu-1" title="英雄列表"></m-card>
   </div>
 </template>
 
@@ -75,7 +60,55 @@ export default {
         pagination: {
           el: '.pagination-home'
         }
-      }
+      },
+
+      newsCats: [
+        {
+          name: "热门",
+          // eslint-disable-next-line no-unused-vars
+          newsList: new Array(5).fill({}).map(v => ({
+            categoryName: '公告',
+            title: '夏日版本“稷下星之队”即将6月上线',
+            date: '06/02'
+          }))
+        },
+        {
+          name: "新闻",
+          // eslint-disable-next-line no-unused-vars
+          newsList: new Array(5).fill({}).map(v => ({
+            categoryName: '公告',
+            title: '夏日版本“稷下星之队”即将6月上线',
+            date: '06/02'
+          }))
+        },
+        {
+          name: "活动",
+          // eslint-disable-next-line no-unused-vars
+          newsList: new Array(5).fill({}).map(v => ({
+            categoryName: '公告',
+            title: '夏日版本“稷下星之队”即将6月上线',
+            date: '06/02'
+          }))
+        },
+        {
+          name: "新闻",
+          // eslint-disable-next-line no-unused-vars
+          newsList: new Array(5).fill({}).map(v => ({
+            categoryName: '公告',
+            title: '夏日版本“稷下星之队”即将6月上线',
+            date: '06/02'
+          }))
+        },
+        {
+          name: "新闻",
+          // eslint-disable-next-line no-unused-vars
+          newsList: new Array(5).fill({}).map(v => ({
+            categoryName: '公告',
+            title: '夏日版本“稷下星之队”即将6月上线',
+            date: '06/02'
+          }))
+        }
+      ]
     }
   }
 }
@@ -88,10 +121,10 @@ export default {
   .swiper-pagination-bullet {
     opacity: 1;
     border-radius: 0.1538rem;
-    background-color: map-get($map: $colors, $key: 'white');
+    background-color: map-get($map: $colors, $key: "white");
 
     &.swiper-pagination-bullet-active {
-      background-color: map-get($map: $colors, $key: 'bar');
+      background-color: map-get($map: $colors, $key: "bar");
     }
   }
 }

@@ -1,13 +1,13 @@
 <template>
-  <h2>购物车</h2>
+  <h2>分类</h2>
 </template>
 
 <script>
 export default {
-  name: "Profile"
+  name: "Category"
 }
 </script>
- 
+
 <style>
 
 </style>

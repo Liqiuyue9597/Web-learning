@@ -1,5 +1,5 @@
 <template>
-  <h2>购物车</h2>
+  <h2>我的</h2>
 </template>
 
 <script>
@@ -7,7 +7,7 @@ export default {
   name: "Profile"
 }
 </script>
- 
+
 <style>
 
 </style>

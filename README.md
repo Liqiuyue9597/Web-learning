@@ -11,10 +11,10 @@ ECMAScript是尚硅谷2017/12月的视频笔记。
 
 2. 学完HTML/CSS/JS以及ES之后，我开始学习框架。但是在学习框架之前，我看了一些Node的基础，比如怎么export和NPM的知识，不需要学得太深。https://www.bilibili.com/video/av75653013?from=search&seid=10459817069764821849 这个也是超哥的基础课，讲得挺清楚。
 
-然后，在React和Vue之中选择学习Vue框架。这个老师讲的不错https://www.bilibili.com/video/av59594689?p=148
+3. 然后，在React和Vue之中选择学习Vue框架。这个老师讲的不错https://www.bilibili.com/video/av59594689?p=148
 选择Vue框架仅仅是因为Vue作者比较活跃，没有关注其他的原因。其实两个框架最好都学习，这里就不要纠结。
 
-3. mallbyvue是上面vue学习视频的案例，但是我觉得这个案例略显low了一点....有点不想做，创建了项目一直没有开始做。shoppingmall是后面我又鼓起勇气尝试去做这个，但是做了一点还是觉得这个项目太烂了，没做了。*也不推荐大家做*。
+mallbyvue是上面vue学习视频的案例，但是我觉得这个案例略显low了一点....有点不想做，创建了项目一直没有开始做。shoppingmall是后面我又鼓起勇气尝试去做这个，但是做了一点还是觉得这个项目太烂了，没做了。*也不推荐大家做*。
 boss是在B站上找到的一个用CSS写，然后用vue抽取的boss直聘手机端案例，这个还不错。*适合基础做，这里没有用到Vue CLI*
 
 - boss-1是纯CSS，boss-2是vue抽取。2020/1/09已经完成。

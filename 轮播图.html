@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./HTML&CSS/CSS/layout布局笔记/CSS重置文件/reset.css">
+  <style>
+    .container {
+      width: 500px;
+      height: 398px;
+      background-color: turquoise;
+      margin: 50px auto;
+      border: 2px solid #cccccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .7);
+    }
+
+    ul {
+      position: relative;
+      height: 100%;
+    }
+
+    ul li {
+      width: 500px;
+      margin-right: 10px;
+      position: absolute;
+      opacity: 0;
+      transition: all 0.8s;
+    }
+
+    ul li img {
+      width: 100%;
+    }
+
+    ul .active {
+      z-index: 999;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <ul class="box">
+      <li class="item active"><img src="./HTML&CSS/examples/4/1.jpg" alt=""> </li>
+      <li class="item"><img src="./HTML&CSS/examples/4/2.jpg" alt=""></li>
+      <li class="item"><img src="./HTML&CSS/examples/4/3.jpg" alt=""></li>
+      <li class="item"><img src="./HTML&CSS/examples/4/4.jpg" alt=""></li>
+      <li class="item"><img src="./HTML&CSS/examples/4/5.jpg" alt=""></li>
+    </ul>
+  </div>
+</body>
+<script>
+  var imgList = document.getElementsByClassName('item')
+
+  // 当前index为多少，那一张就被active
+  var index = 0
+  var goIndex = function () {
+    // 每赋值一次就把class的active清除以便下一次设置active
+    // for(var i=0; i<imgList.length; i++){
+    //   imgList[i].className = 'item'
+    // }
+    if (index == 0) {
+      imgList[imgList.length - 1].className = 'item'
+    } else {
+      imgList[index - 1].className = 'item'
+    }
+    imgList[index].className = 'item active'
+  }
+
+  setInterval(function () {
+    if (index < imgList.length - 1) {
+      index++
+    } else {
+      index = 0
+    }
+    goIndex()
+  }, 2000)
+</script>
+
+</html>

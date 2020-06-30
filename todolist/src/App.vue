@@ -53,7 +53,7 @@ export default {
     },
 
     // 新增内容
-    addItemToList() {
+    addItemToList() { 
       if (this.inputVal.trim().length == 0) {
         return this.$message.warning("请输入内容")
       }

@@ -6,11 +6,11 @@
 2. 利用HTML+CSS做一个静态页面模仿Demo（比如模仿小米或者魅族官网）
 3. 使用JavaScript制作轮播图和可以实现模糊查询的todolist
 4. 选择框架(Vue or React)学习【这里我用Vue举例】 
-  1. 先学习怎么用（基本语法v-bind/b-on/v-if/v-model/父子传参/引入components等）
-  2. 做一个通过在`<script>`中引入Vue文件的项目熟悉基本语法和用法
-  3. 学习VueRouter和Vuex等其他组件
-  4. 做一个`vue create project-name`用脚手架创建的项目（最好是贴近现实/不是那种垃圾项目）。PS：垃圾项目的定义就是项目设计简陋并且和实际开发不贴近，花时间学习不到太多干货。
-  5. 深入学习Vue的生命周期/MVVM/diff算法等原理（推荐慕课网的相关课程）。然后你会明白Vue的神奇之处，很多第1/2步积攒的疑问迎刃而解（比如data里为什么返回的是函数/什么时候函数放created or methods or mounted or computed等）
+    1. 先学习怎么用（基本语法v-bind/b-on/v-if/v-model/父子传参/引入components等）
+    2. 做一个通过在`<script>`中引入Vue文件的项目熟悉基本语法和用法
+    3. 学习VueRouter和Vuex等其他组件
+    4. 做一个`vue create project-name`用脚手架创建的项目（最好是贴近现实/不是那种垃圾项目）。PS：垃圾项目的定义就是项目设计简陋并且和实际开发不贴近，花时间学习不到太多干货。
+    5. 深入学习Vue的生命周期/MVVM/diff算法等原理（推荐慕课网的相关课程）。然后你会明白Vue的神奇之处，很多第1/2步积攒的疑问迎刃而解（比如data里为什么返回的是函数/什么时候函数放created or methods or mounted or computed等）
 5. 前端框架学习完成后，建议学习一点后台(比如NodeJS and express和数据库MongDB and mongoose)
 6. 找一个技术栈为Vue/React + Node的全栈项目自己尝试做
 7. 自己根据之前的经验自己做一个全栈项目（这里我自己做了自己的博客）。PS：这里不要用`vue create project-name`类似的脚手架搭建项目，用`webpack`自己创建项目。
